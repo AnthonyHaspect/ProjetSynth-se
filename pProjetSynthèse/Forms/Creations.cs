@@ -14,8 +14,7 @@ namespace pProjetSynthèse.Forms
 {
     public partial class Creations : Form
     {
-        SqlConnection cnx;
-        SqlCommand command;
+
         public Creations()
         {
             InitializeComponent();

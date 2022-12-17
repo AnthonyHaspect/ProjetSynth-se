@@ -20,5 +20,16 @@ namespace pProjetSynthèse.Classes
         public cUsager CUsager { get { return cUsager; } set { cUsager = value; } }
         public cObjet CObjet { get { return cObjet; } set { cObjet = value; } }
 
+        public cCreation(float nbHeure, cObjet cObjet, float itemTotal, cUsager cUsager, float numCommandeId, DateTime dateCommande)
+        {
+            this.nbHeure = nbHeure;
+            CObjet = cObjet;
+            ItemTotal = itemTotal;
+            CUsager = cUsager;
+            NumCommandeId = numCommandeId;
+            this.dateCommande = dateCommande;
+        }
+
+
     }
 }

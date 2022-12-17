@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace pProjetSynthèse.Classes
 {
-    internal class cUsager              //Va devenir soit un employer normal ou un Gérant
+    abstract class cUsager              //Va devenir soit un employer normal ou un Gérant
     {
-        private string nom;             //Nom de l'usager
-        private string prenom;          //Prenom de l'usager
-        public  DateTime dateCreation;  //Date de la création de l'usager
-        
+        public string Nom;             //Nom de l'usager
+        public string Prenom;          //Prenom de l'usager
+        public DateTime Datecreation;  //Date de la création de l'usager
 
-        public string Nom { get { return nom; } set { nom = value; } }
-        public string Prenom { get { return prenom; } set { prenom = value; } }
 
-        cUsager(string nom, string prenom, DateTime dateCreation)
+
+        public cUsager(string nom, string prenom, DateTime datecreation)
         {
             Nom = nom;
             Prenom = prenom;
-            this.dateCreation = dateCreation;
+            Datecreation = datecreation;
         }
+
+        abstract public string Afficher();
     }
 }

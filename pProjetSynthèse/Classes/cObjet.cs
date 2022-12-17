@@ -20,7 +20,7 @@ namespace pProjetSynthèse.Classes
         public float IdObjet { get { return idObjet; } set { idObjet = value; } }
         public string NomObjet { get { return nomObjet; } set { nomObjet = value; } }
 
-        cObjet(float nbParHeure, float prix, float cout, float idObjet, string nomObjet)
+        public cObjet(float nbParHeure, float prix, float cout, float idObjet, string nomObjet)
         {
             NbParHeure = nbParHeure;
             Prix = prix;
