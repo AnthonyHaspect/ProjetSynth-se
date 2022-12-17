@@ -52,5 +52,10 @@ namespace pProjetSynthèse.Forms
             else
                 MessageBox.Show("La table objets est vide.");
         }
+
+        private void btnModif_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
