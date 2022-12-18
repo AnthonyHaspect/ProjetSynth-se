@@ -40,6 +40,7 @@
             this.chkbGreant = new System.Windows.Forms.CheckBox();
             this.gbconnection = new System.Windows.Forms.GroupBox();
             this.gbCreer = new System.Windows.Forms.GroupBox();
+            this.lblErreurUsager = new System.Windows.Forms.Label();
             this.gbconnection.SuspendLayout();
             this.gbCreer.SuspendLayout();
             this.SuspendLayout();
@@ -158,19 +159,31 @@
             this.gbCreer.TabStop = false;
             this.gbCreer.Text = "Création d\'un compte";
             // 
+            // lblErreurUsager
+            // 
+            this.lblErreurUsager.AutoSize = true;
+            this.lblErreurUsager.Location = new System.Drawing.Point(28, 212);
+            this.lblErreurUsager.Name = "lblErreurUsager";
+            this.lblErreurUsager.Size = new System.Drawing.Size(65, 13);
+            this.lblErreurUsager.TabIndex = 10;
+            this.lblErreurUsager.Text = "Les erreurs: ";
+            // 
             // Connection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 234);
+            this.ClientSize = new System.Drawing.Size(455, 282);
+            this.Controls.Add(this.lblErreurUsager);
             this.Controls.Add(this.gbCreer);
             this.Controls.Add(this.gbconnection);
             this.Name = "Connection";
             this.Text = " Comptes";
+            this.Load += new System.EventHandler(this.Connection_Load);
             this.gbconnection.ResumeLayout(false);
             this.gbCreer.ResumeLayout(false);
             this.gbCreer.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -188,5 +201,6 @@
         private System.Windows.Forms.CheckBox chkbGreant;
         private System.Windows.Forms.GroupBox gbconnection;
         private System.Windows.Forms.GroupBox gbCreer;
+        private System.Windows.Forms.Label lblErreurUsager;
     }
 }

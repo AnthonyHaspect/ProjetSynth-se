@@ -113,6 +113,7 @@ namespace pProjetSynthèse.Forms
                 IdObjet = IdObj
             });
 
+
             //Référence Exercie lab mode connecter
             //Préparer la commande INSERT dans la variable Query 
             Query = "INSERT INTO objets (Nom, NbParHeure, cout, prix, code) VALUES ('" + tNomObj + "'," + tHeure + "," + tCout + "," + tPrix + ", '" + IdObj + "');";
@@ -138,8 +139,10 @@ namespace pProjetSynthèse.Forms
             catch (Exception ex)
             { MessageBox.Show(ex.Message,"Erreur"); }
 
-
-
+            lblErreurObj.ForeColor = Color.Green;
+            lblErreurObj.Text = "Réussite ajout voici la liste des obj disponible";
+            
+            //foreach ()
 
 
         }
@@ -173,25 +176,100 @@ namespace pProjetSynthèse.Forms
             resultat.Close();
 
         }
+        private void datagridObj_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Récupérer la position dans le DataGrid
+            position = datagridObj.CurrentRow.Index;
+            //Récupérer le numéro étudiant (clé) 
+            //int NumCode = int.Parse(datagridObj.Rows[position].Cells[0].Value.ToString());
+            //Récupérer les données dans les textBox à partir du clic sur le DataGridView 
+            txbNomItem.Text = datagridObj.Rows[position].Cells[0].Value.ToString();
+            txbNbParH.Text = datagridObj.Rows[position].Cells[1].Value.ToString();
+            txbCout.Text = datagridObj.Rows[position].Cells[2].Value.ToString();
+            txbPrix.Text = datagridObj.Rows[position].Cells[3].Value.ToString();
+            txbCode.Text = datagridObj.Rows[position].Cells[4].Value.ToString();
+            btnSupp.Enabled = true;
+            btnModif.Enabled = true;
 
+        }
+        //Référence Laboratoire_Mode_connecte.docx
         private void btnSupp_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand();
-            command.CommandText = "Delete From objets where Code=@Num";
-            command.Parameters.AddWithValue("@Num", txbCode);
+            //command = new SqlCommand(Query, cnx);
+            Query = "Delete From objets where code='@Code'";
+            using (SqlCommand command = new SqlCommand(Query, cnx))
+            {
+                command.Parameters.AddWithValue("@Code", txbCode.Text);
+
+                //Rétablir la connexion avec le serveur si elle est fermée   
+                if (cnx.State == ConnectionState.Open) //ConnectionState dans System.Data
+                    cnx.Close();
+                cnx.Open();
+                command.ExecuteNonQuery();
+                datagridObj.Rows.RemoveAt(position);
+                cnx.Close();
+            }
+
+            command.CommandText = Query;
+            //Rétablir la connexion avec le serveur si elle est fermée   
+            //if (cnx.State == ConnectionState.Open) //ConnectionState dans System.Data
+            //    cnx.Close();
+            //cnx.Open();
+            //command.ExecuteNonQuery();
+            //datagridObj.Rows.RemoveAt(position);
+            //cnx.Close();
+            btnModif.Enabled = false;
+            btnSupp.Enabled = false;
+
+
+        }
+
+        private void btnModif_Click(object sender, EventArgs e)
+        {
+            if (!Regex.Match(txbNomItem.Text, "[a-zA-Z]{2,254}").Success)
+            {
+                lblErreurObj.Text += "\nLe champ Nom de l'item n'est pas comforme";
+                lblErreurObj.ForeColor = Color.Red;
+                return;
+            }
+            //si le text ne match pas un entier il est rejeter
+            if (!Regex.Match(txbNbParH.Text, "^[1-9][0-9]*").Success)
+            {
+                lblErreurObj.Text += "\nLe champ Nombre par heure n'est pas conforme!";
+                lblErreurObj.ForeColor = Color.Red;
+                return;
+            }
+            //si le text ne match pas un nombre entier ou un nombre avec 2 décimal maxium il est rejeter
+            if (!Regex.Match(txbCout.Text, @"(^(\d+)((\.\d{1,2})?))$").Success)
+            {
+                lblErreurObj.Text += "\nLe champ Cout n'est pas conforme!\n exemple : 10, 10.1, 1, 10,99";
+                lblErreurObj.ForeColor = Color.Red;
+                return;
+
+            }
+            //meme chose que le précédent
+            if (!Regex.Match(txbPrix.Text, @"(^(\d+)((\.\d{1,2})?))$").Success)
+            {
+                lblErreurObj.Text += "\nLe champ Prix n'est pas conforme!\n exemple : 20, 20.1, 2, 21,99";
+                lblErreurObj.ForeColor = Color.Red;
+                return;
+            }
+
+            float tPrix = (float)Convert.ToDecimal(txbPrix.Text.Trim());
+            float tCout = (float)Convert.ToDecimal(txbCout.Text.Trim());
+            int tHeure = Convert.ToInt32(txbNbParH.Text.Trim());
+            string tNomObj = txbNomItem.Text.Trim();
+            command = new SqlCommand(Query, cnx);
+            //Query = "UPDATE objets SET Nom = 'allo' WHERE code='" + txbCode + "';"; //Test , NbParHeure=1,cout=1,prix=1
+            Query = "UPDATE objets SET Nom = '" +tNomObj+"',NbParHeure="+ tHeure+",cout="+ tCout+ ",prix "+tPrix+" WHERE code='" + txbCode + "';";
+            command.CommandText = Query;
             //Rétablir la connexion avec le serveur si elle est fermée   
             if (cnx.State == ConnectionState.Open) //ConnectionState dans System.Data
                 cnx.Close();
             cnx.Open();
             command.ExecuteNonQuery();
-            datagridObj.Rows.RemoveAt(position);
             cnx.Close();
-
-        }
-
-        private void datagridObj_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            btnRaffairchir_Click(sender, e);
         }
     }
 }

@@ -18,9 +18,14 @@ namespace pProjetSynthèse.Classes
 
         public string NumGerant { get { return numGerant; } set { numGerant = value; } }
 
-        public override string Afficher()
+        public override string ToString()
         {
             return "Gérant connecter : " + Prenom + " " + Nom + " Numero : " + numGerant;
+        }
+
+        public cGerant()
+        {
+            numGerant= "NULL";
         }
 
     }

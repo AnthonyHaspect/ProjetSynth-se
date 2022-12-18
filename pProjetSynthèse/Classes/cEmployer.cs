@@ -23,6 +23,10 @@ namespace pProjetSynthèse.Classes
             return "Employer connecter : " + Prenom + " " + Nom + " Numero : " + numEmployer;
         }
 
+        public cEmployer()
+        {
+            NumEmployer= "NULL";
+        }
 
     }
 }

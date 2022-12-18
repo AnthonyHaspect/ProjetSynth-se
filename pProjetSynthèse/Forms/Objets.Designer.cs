@@ -153,6 +153,7 @@
             // 
             // btnSupp
             // 
+            this.btnSupp.Enabled = false;
             this.btnSupp.Location = new System.Drawing.Point(476, 189);
             this.btnSupp.Name = "btnSupp";
             this.btnSupp.Size = new System.Drawing.Size(97, 23);
@@ -163,12 +164,14 @@
             // 
             // btnModif
             // 
+            this.btnModif.Enabled = false;
             this.btnModif.Location = new System.Drawing.Point(65, 203);
             this.btnModif.Name = "btnModif";
             this.btnModif.Size = new System.Drawing.Size(97, 23);
             this.btnModif.TabIndex = 12;
             this.btnModif.Text = "Modifier";
             this.btnModif.UseVisualStyleBackColor = true;
+            this.btnModif.Click += new System.EventHandler(this.btnModif_Click);
             // 
             // txbCode
             // 
