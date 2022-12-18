@@ -8,19 +8,19 @@ namespace pProjetSynthèse.Classes
 {
     internal class cObjet           //Classe qui possède les informations sur les objets    
     {
-        private float nbParHeure;   //Nombre d'objet crée par heure(ex: 100)
+        private int nbParHeure;   //Nombre d'objet crée par heure(ex: 100)
         private float prix;         //Le prix au quelle l'objet se vend(prix de vente)(ex: 
         private float cout;         //Le coût de l'item a produire par heure (matériaux/ Main d'oeuvre)(ex: 12500$)
-        private float idObjet;      //Id unique de l'objet pour l'identifié (code barre)(ex: 843543
+        private string idObjet;      //Id unique de l'objet pour l'identifié (code barre)(ex: 843543
         private string nomObjet;    //Nom descriptif de l'objet (ex: Telephone)
 
-        public float NbParHeure { get { return nbParHeure; } set { nbParHeure = value; } }
+        public int NbParHeure { get { return nbParHeure; } set { nbParHeure = value; } }
         public float Prix { get { return prix; } set { prix = value; } }
         public float Cout { get { return cout; } set { cout = value; } }
-        public float IdObjet { get { return idObjet; } set { idObjet = value; } }
+        public string IdObjet { get { return idObjet; } set { idObjet = value; } }
         public string NomObjet { get { return nomObjet; } set { nomObjet = value; } }
 
-        public cObjet(float nbParHeure, float prix, float cout, float idObjet, string nomObjet)
+        public cObjet(int nbParHeure, float prix, float cout, string idObjet, string nomObjet)
         {
             NbParHeure = nbParHeure;
             Prix = prix;
@@ -28,6 +28,16 @@ namespace pProjetSynthèse.Classes
             IdObjet = idObjet;
             NomObjet = nomObjet;
         }
+
+        public cObjet()
+        {
+            nbParHeure = 0;
+            Prix = 0;
+            Cout= 0;
+            idObjet = "I-objet";
+            nomObjet = "objet";
+        }
+
         /// <summary>
         /// Cette fonction permet de calculer le prix d'un item individuel
         /// </summary>

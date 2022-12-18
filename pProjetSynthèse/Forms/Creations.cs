@@ -43,7 +43,7 @@ namespace pProjetSynthèse.Forms
                 while (resultat.Read()) // Tant qu'il y a des lignes à lire
                 {
                     //On ajouter les trois colonnes de la ligne lue
-                    dataGridView1.Rows.Add(resultat[0], resultat[1], resultat[2], resultat[3], resultat[4], resultat[5]);
+                    dgtCreations.Rows.Add(resultat[0], resultat[1], resultat[2], resultat[3], resultat[4], resultat[5]);
                 }
 
 

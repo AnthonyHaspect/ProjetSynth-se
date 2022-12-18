@@ -30,10 +30,10 @@
         {
             this.btnCreer = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cmbListeUsager = new System.Windows.Forms.ComboBox();
+            this.txbNom = new System.Windows.Forms.TextBox();
+            this.txbDeptart = new System.Windows.Forms.TextBox();
+            this.txbPrenom = new System.Windows.Forms.TextBox();
             this.lblDepartement = new System.Windows.Forms.Label();
             this.lblNom = new System.Windows.Forms.Label();
             this.lblPrenom = new System.Windows.Forms.Label();
@@ -64,34 +64,34 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // comboBox1
+            // cmbListeUsager
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(32, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cmbListeUsager.FormattingEnabled = true;
+            this.cmbListeUsager.Location = new System.Drawing.Point(32, 19);
+            this.cmbListeUsager.Name = "cmbListeUsager";
+            this.cmbListeUsager.Size = new System.Drawing.Size(121, 21);
+            this.cmbListeUsager.TabIndex = 2;
             // 
-            // textBox1
+            // txbNom
             // 
-            this.textBox1.Location = new System.Drawing.Point(84, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 20);
-            this.textBox1.TabIndex = 3;
+            this.txbNom.Location = new System.Drawing.Point(84, 19);
+            this.txbNom.Name = "txbNom";
+            this.txbNom.Size = new System.Drawing.Size(130, 20);
+            this.txbNom.TabIndex = 3;
             // 
-            // textBox2
+            // txbDeptart
             // 
-            this.textBox2.Location = new System.Drawing.Point(84, 98);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(130, 20);
-            this.textBox2.TabIndex = 4;
+            this.txbDeptart.Location = new System.Drawing.Point(84, 98);
+            this.txbDeptart.Name = "txbDeptart";
+            this.txbDeptart.Size = new System.Drawing.Size(130, 20);
+            this.txbDeptart.TabIndex = 4;
             // 
-            // textBox3
+            // txbPrenom
             // 
-            this.textBox3.Location = new System.Drawing.Point(84, 58);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(130, 20);
-            this.textBox3.TabIndex = 5;
+            this.txbPrenom.Location = new System.Drawing.Point(84, 58);
+            this.txbPrenom.Name = "txbPrenom";
+            this.txbPrenom.Size = new System.Drawing.Size(130, 20);
+            this.txbPrenom.TabIndex = 5;
             // 
             // lblDepartement
             // 
@@ -132,7 +132,7 @@
             // 
             // gbconnection
             // 
-            this.gbconnection.Controls.Add(this.comboBox1);
+            this.gbconnection.Controls.Add(this.cmbListeUsager);
             this.gbconnection.Controls.Add(this.btnConnect);
             this.gbconnection.Location = new System.Drawing.Point(-1, 17);
             this.gbconnection.Name = "gbconnection";
@@ -143,12 +143,12 @@
             // 
             // gbCreer
             // 
-            this.gbCreer.Controls.Add(this.textBox1);
+            this.gbCreer.Controls.Add(this.txbNom);
             this.gbCreer.Controls.Add(this.btnCreer);
             this.gbCreer.Controls.Add(this.chkbGreant);
-            this.gbCreer.Controls.Add(this.textBox2);
+            this.gbCreer.Controls.Add(this.txbDeptart);
             this.gbCreer.Controls.Add(this.lblPrenom);
-            this.gbCreer.Controls.Add(this.textBox3);
+            this.gbCreer.Controls.Add(this.txbPrenom);
             this.gbCreer.Controls.Add(this.lblNom);
             this.gbCreer.Controls.Add(this.lblDepartement);
             this.gbCreer.Location = new System.Drawing.Point(184, 17);
@@ -178,10 +178,10 @@
 
         private System.Windows.Forms.Button btnCreer;
         private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox cmbListeUsager;
+        private System.Windows.Forms.TextBox txbNom;
+        private System.Windows.Forms.TextBox txbDeptart;
+        private System.Windows.Forms.TextBox txbPrenom;
         private System.Windows.Forms.Label lblDepartement;
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.Label lblPrenom;

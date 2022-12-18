@@ -9,7 +9,7 @@ namespace pProjetSynthèse.Classes
     internal class cGerant : cUsager
     {
         private string numGerant;
-
+        //Référence mon Exercices d'Héritage avec les camion/véhicule/voiture pour l'héritage
         public cGerant(string nom, string prenom, DateTime dateTime, string numGerant)
             : base(nom, prenom, dateTime)
         {
