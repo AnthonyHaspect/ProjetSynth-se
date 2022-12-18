@@ -26,6 +26,20 @@ namespace pProjetSynthèse
 
         }
 
+        private void cmbAff()
+        {
+            cmbListeUsager.Items.Clear();
+            foreach (cGerant element in listecGerant)
+            {
+                cmbListeUsager.Items.Add(element.NumGerant);
+            }
+
+            foreach (cEmployer element in listecEmployer)
+            {
+                cmbListeUsager.Items.Add(element.NumEmployer);
+            }
+        }
+
         private void btnCreer_Click(object sender, EventArgs e)
         {
             //si le text ne match pas une chaine de caractère il refuse
@@ -66,6 +80,8 @@ namespace pProjetSynthèse
                     Datecreation = DateTime.Now,
                     NumGerant = "G-" + DateTime.Now
                 });
+                lblErreurUsager.ForeColor = Color.Green;
+                lblErreurUsager.Text = "G-" + DateTime.Now;
             }
             else
             {
@@ -76,7 +92,11 @@ namespace pProjetSynthèse
                     Datecreation = DateTime.Now,
                     NumEmployer = "E-" + DateTime.Now
                 });
+                lblErreurUsager.ForeColor = Color.Green;
+                lblErreurUsager.Text = "E-" + DateTime.Now;
             }
+
+            cmbAff();
 
         }
 
@@ -98,6 +118,8 @@ namespace pProjetSynthèse
                 Datecreation = DateTime.Now,
                 NumGerant = "G-2000-5-5"
             });
+
+            cmbAff();
         }
     }
 }

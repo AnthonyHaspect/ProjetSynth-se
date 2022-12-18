@@ -23,14 +23,14 @@ namespace pProjetSynthèse.Classes
             Datecreation = datecreation;
         }
 
-        
+
         public cUsager()
         {
             nb_usager = 0;
-            Nom= string.Empty;
-            Prenom= string.Empty;
-            Datecreation= DateTime.MinValue;
+            Nom = string.Empty;
+            Prenom = string.Empty;
+            Datecreation = DateTime.MinValue;
         }
-        abstract public string Afficher();
+        abstract public override string ToString();
     }
 }

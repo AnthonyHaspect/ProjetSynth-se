@@ -9,7 +9,7 @@ namespace pProjetSynthèse.Classes
     internal class cEmployer : cUsager
     {
         private string numEmployer;
-
+        //Référence mon Exercices d'Héritage avec les camion/véhicule/voiture pour l'héritage
         public cEmployer(string nom, string prenom, DateTime dateTime, string numEmployer)
             : base(nom,prenom,dateTime)
         {
@@ -18,9 +18,11 @@ namespace pProjetSynthèse.Classes
 
         public string NumEmployer { get { return numEmployer; } set { numEmployer = value; } }
 
-        public override string Afficher()
+        public override string ToString()
         {
-            return "Employer connecter : " + Prenom + " " + Nom + " Numero : " + numEmployer;
+            string chaine = "";
+            
+            return chaine =string.Format("Employer connecter : {0}, {1}, Numero : {2}", Prenom, Nom, numEmployer);
         }
 
         public cEmployer()

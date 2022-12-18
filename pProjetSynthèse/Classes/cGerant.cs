@@ -20,7 +20,9 @@ namespace pProjetSynthèse.Classes
 
         public override string ToString()
         {
-            return "Gérant connecter : " + Prenom + " " + Nom + " Numero : " + numGerant;
+            string chaine = "";
+
+            return chaine = string.Format("Gérant connecter : {0}, {1}, Numero : {2}", Prenom, Nom, numGerant);
         }
 
         public cGerant()
