@@ -22,7 +22,7 @@ namespace pProjetSynthèse.Classes
         {
             string chaine = "";
 
-            return chaine = string.Format("Gérant connecter : {0}, {1}, Numero : {2}", Prenom, Nom, numGerant);
+            return chaine = string.Format("\nGérant connecter : {0}, {1}, Numero : {2}", Prenom, Nom, numGerant);
         }
 
         public cGerant()

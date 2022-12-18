@@ -15,9 +15,11 @@ namespace pProjetSynthèse.Forms
     public partial class Creations : Form
     {
 
-        public Creations()
+        public Creations(string datapass)
         {
             InitializeComponent();
+            txbEmployer.Text = datapass;
+
         }
 
         private void Creations_Load(object sender, EventArgs e)

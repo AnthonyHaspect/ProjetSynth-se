@@ -39,9 +39,9 @@ namespace pProjetSynthèse
             formulaire.MdiParent = this; // définir le formulaire parent
             formulaire.Show(); // affichage du formulaire enfant
             //Afficher le formulaire des création
-            Creations formulaire2= new Creations();
-            formulaire2.MdiParent = this;
-            formulaire2.Show();
+            //Creations formulaire2= new Creations();
+            //formulaire2.MdiParent = this;
+            //formulaire2.Show();
             //Affiche le formulaire des objets
             Objets formulaire3= new Objets();
             formulaire3.MdiParent = this;

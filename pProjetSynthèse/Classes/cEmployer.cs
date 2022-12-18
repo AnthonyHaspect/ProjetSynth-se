@@ -22,7 +22,7 @@ namespace pProjetSynthèse.Classes
         {
             string chaine = "";
             
-            return chaine =string.Format("Employer connecter : {0}, {1}, Numero : {2}", Prenom, Nom, numEmployer);
+            return chaine =string.Format("\nEmployer connecter : {0}, {1}, Numero : {2}", Prenom, Nom, numEmployer);
         }
 
         public cEmployer()

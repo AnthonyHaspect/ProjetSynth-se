@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace pProjetSynthèse.Classes
 {
-    internal class cCalNumCommande
+    interface cCalNumCommande
     {
+        void Calcul();
     }
 }

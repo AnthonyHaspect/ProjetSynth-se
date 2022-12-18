@@ -41,6 +41,7 @@
             this.gbconnection = new System.Windows.Forms.GroupBox();
             this.gbCreer = new System.Windows.Forms.GroupBox();
             this.lblErreurUsager = new System.Windows.Forms.Label();
+            this.btnAfficher = new System.Windows.Forms.Button();
             this.gbconnection.SuspendLayout();
             this.gbCreer.SuspendLayout();
             this.SuspendLayout();
@@ -168,11 +169,22 @@
             this.lblErreurUsager.TabIndex = 10;
             this.lblErreurUsager.Text = "Les erreurs: ";
             // 
+            // btnAfficher
+            // 
+            this.btnAfficher.Location = new System.Drawing.Point(31, 166);
+            this.btnAfficher.Name = "btnAfficher";
+            this.btnAfficher.Size = new System.Drawing.Size(75, 23);
+            this.btnAfficher.TabIndex = 12;
+            this.btnAfficher.Text = "Afficher";
+            this.btnAfficher.UseVisualStyleBackColor = true;
+            this.btnAfficher.Click += new System.EventHandler(this.btnAfficher_Click);
+            // 
             // Connection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 282);
+            this.ClientSize = new System.Drawing.Size(455, 320);
+            this.Controls.Add(this.btnAfficher);
             this.Controls.Add(this.lblErreurUsager);
             this.Controls.Add(this.gbCreer);
             this.Controls.Add(this.gbconnection);
@@ -202,5 +214,6 @@
         private System.Windows.Forms.GroupBox gbconnection;
         private System.Windows.Forms.GroupBox gbCreer;
         private System.Windows.Forms.Label lblErreurUsager;
+        private System.Windows.Forms.Button btnAfficher;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using pProjetSynthèse.Classes;
+using pProjetSynthèse.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace pProjetSynthèse
 {
     public partial class Connection : Form
     {
+
         List<cGerant> listecGerant = new List<cGerant>();
         List<cEmployer> listecEmployer = new List<cEmployer>();
         public Connection()
@@ -23,6 +25,16 @@ namespace pProjetSynthèse
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            //si le text ne match pas une chaine de caractère il refuse
+            if (!Regex.Match(cmbListeUsager.Text.Trim(), ".{2,254}").Success)
+            {
+                lblErreurUsager.Text += "\nLe champ nom de l'usager n'est pas comforme";
+                lblErreurUsager.ForeColor = Color.Red;
+                return;
+            }
+
+            Creations formulaire2 = new Creations(cmbListeUsager.SelectedItem.ToString());
+            formulaire2.Show();
 
         }
 
@@ -120,6 +132,24 @@ namespace pProjetSynthèse
             });
 
             cmbAff();
+        }
+
+        private void btnAfficher_Click(object sender, EventArgs e)
+        {
+            lblErreurUsager.ForeColor = Color.Blue;
+            lblErreurUsager.Text = "Les gérants: ";
+            foreach (cGerant objUsager in listecGerant)
+            {
+
+                lblErreurUsager.Text += objUsager.ToString();
+            }
+            lblErreurUsager.Text += "\nLes employers: ";
+            foreach (cEmployer objUsager in listecEmployer)
+            {
+
+                lblErreurUsager.Text += objUsager.ToString();
+            }
+
         }
     }
 }

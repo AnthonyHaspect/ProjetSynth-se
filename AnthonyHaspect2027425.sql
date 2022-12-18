@@ -18,8 +18,8 @@ create table Commande(
 	NumeroCmd varchar(255) primary key)
 
 
-insert into objets (Nom, NbParHeure, cout, prix, code)
-VALUES ('Cannette', 1000, 10.00, 20.00, 'I-235867')
+INSERT INTO objets (Nom, NbParHeure, cout, prix, code)
+VALUES ('Cannette', 1000, 10.00, 20.00, 'I-235867');
 
 INSERT INTO Commande(Item, NbItem, Heures, Prix, Usager, NumeroCmd)
-VALUES ('Cannette', 2000, 2, 20.00, 'Anthony', 'C-564286')
+VALUES ('Cannette', 2000, 2, 20.00, 'Anthony', 'C-564286');
