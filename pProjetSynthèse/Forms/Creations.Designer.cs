@@ -52,6 +52,7 @@
             this.btnRaffairchirs = new System.Windows.Forms.Button();
             this.txbCodeCmd = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.lblErreurObj = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgtCreations)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -264,11 +265,21 @@
             this.label6.TabIndex = 22;
             this.label6.Text = "NumCommande";
             // 
+            // lblErreurObj
+            // 
+            this.lblErreurObj.AutoSize = true;
+            this.lblErreurObj.Location = new System.Drawing.Point(9, 466);
+            this.lblErreurObj.Name = "lblErreurObj";
+            this.lblErreurObj.Size = new System.Drawing.Size(65, 13);
+            this.lblErreurObj.TabIndex = 21;
+            this.lblErreurObj.Text = "Les erreurs: ";
+            // 
             // Creations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 556);
+            this.Controls.Add(this.lblErreurObj);
             this.Controls.Add(this.btnRaffairchirs);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txbItemTotal);
@@ -313,5 +324,6 @@
         private System.Windows.Forms.Button btnRaffairchirs;
         private System.Windows.Forms.TextBox txbCodeCmd;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblErreurObj;
     }
 }

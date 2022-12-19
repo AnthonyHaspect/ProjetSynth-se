@@ -40,9 +40,9 @@ namespace pProjetSynthèse.Classes
             dateCommande= DateTime.Now;
         }
 
-        public string Affichage()
+        public override string ToString()
         {
-            return "\nCommande : Numero: "+ numCommandeId;
+           return "\nCommande : Numero: "+ numCommandeId;
         }
 
 

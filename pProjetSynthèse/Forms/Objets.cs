@@ -145,7 +145,6 @@ namespace pProjetSynthèse.Forms
             lblErreurObj.ForeColor = Color.Green;
             lblErreurObj.Text = "Réussite ajout voici la liste des obj disponible";
             
-            //foreach ()
 
 
         }
