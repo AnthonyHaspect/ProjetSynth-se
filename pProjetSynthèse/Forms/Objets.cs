@@ -22,9 +22,12 @@ namespace pProjetSynthèse.Forms
         string Query;
         SqlDataReader resultat;
         int position = -1;
-        public Objets()
+        List<cObjet> ListeObjets = new List<cObjet>();
+        public Objets(string datapass)
         {
             InitializeComponent();
+            lbldatapassed.Text =  datapass;
+
         }
 
         private void Objets_Load(object sender, EventArgs e)
@@ -103,7 +106,7 @@ namespace pProjetSynthèse.Forms
             string tNomObj = txbNomItem.Text.Trim();
             string IdObj = "I-" + DateTime.Now;
 
-            List<cObjet> ListeObjets = new List<cObjet>();
+            
             ListeObjets.Add(new cObjet()
             {
                 NomObjet = tNomObj,
@@ -180,8 +183,6 @@ namespace pProjetSynthèse.Forms
         {
             //Récupérer la position dans le DataGrid
             position = datagridObj.CurrentRow.Index;
-            //Récupérer le numéro étudiant (clé) 
-            //int NumCode = int.Parse(datagridObj.Rows[position].Cells[0].Value.ToString());
             //Récupérer les données dans les textBox à partir du clic sur le DataGridView 
             txbNomItem.Text = datagridObj.Rows[position].Cells[0].Value.ToString();
             txbNbParH.Text = datagridObj.Rows[position].Cells[1].Value.ToString();
@@ -211,13 +212,7 @@ namespace pProjetSynthèse.Forms
             }
 
             command.CommandText = Query;
-            //Rétablir la connexion avec le serveur si elle est fermée   
-            //if (cnx.State == ConnectionState.Open) //ConnectionState dans System.Data
-            //    cnx.Close();
-            //cnx.Open();
-            //command.ExecuteNonQuery();
-            //datagridObj.Rows.RemoveAt(position);
-            //cnx.Close();
+
             btnModif.Enabled = false;
             btnSupp.Enabled = false;
 
@@ -270,6 +265,13 @@ namespace pProjetSynthèse.Forms
             command.ExecuteNonQuery();
             cnx.Close();
             btnRaffairchir_Click(sender, e);
+        }
+
+        private void btnCreation_Click(object sender, EventArgs e)
+        {
+            //Passe les valeur et liste nécessaire vers la page création
+            Creations formulaire2 = new Creations(lbldatapassed.Text);//, ListeObjets);
+            formulaire2.Show();
         }
     }
 }

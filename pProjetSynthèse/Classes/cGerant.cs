@@ -27,7 +27,7 @@ namespace pProjetSynthèse.Classes
 
         public cGerant()
         {
-            numGerant= "NULL";
+            numGerant = "NULL";
         }
 
     }

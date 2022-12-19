@@ -15,7 +15,7 @@ namespace pProjetSynthèse
 {
     public partial class Connection : Form
     {
-
+        
         List<cGerant> listecGerant = new List<cGerant>();
         List<cEmployer> listecEmployer = new List<cEmployer>();
         public Connection()
@@ -26,18 +26,21 @@ namespace pProjetSynthèse
         private void btnConnect_Click(object sender, EventArgs e)
         {
             //si le text ne match pas une chaine de caractère il refuse
+            lblErreurUsager.Text = "les Erreur:";
             if (!Regex.Match(cmbListeUsager.Text.Trim(), ".{2,254}").Success)
             {
-                lblErreurUsager.Text += "\nLe champ nom de l'usager n'est pas comforme";
+                lblErreurUsager.Text += "\nLe champ Connection n'est pas comforme\nChoissisez un utilisateur!";
                 lblErreurUsager.ForeColor = Color.Red;
                 return;
             }
 
-            Creations formulaire2 = new Creations(cmbListeUsager.SelectedItem.ToString());
+            Objets formulaire2 = new Objets(cmbListeUsager.SelectedItem.ToString());
             formulaire2.Show();
 
         }
-
+        /// <summary>
+        /// Ajout la liste de gérant et de employer a la combo box 
+        /// </summary>
         private void cmbAff()
         {
             cmbListeUsager.Items.Clear();
@@ -50,10 +53,14 @@ namespace pProjetSynthèse
             {
                 cmbListeUsager.Items.Add(element.NumEmployer);
             }
+
         }
+        //Expression Lambdas
+        Func<string, string> StringId = x => x +DateTime.Now.ToString();
 
         private void btnCreer_Click(object sender, EventArgs e)
         {
+            lblErreurUsager.Text = "Les erreurs: ";
             //si le text ne match pas une chaine de caractère il refuse
             if (!Regex.Match(txbNom.Text.Trim(), "[a-zA-Z]{2,254}").Success)
             {
@@ -90,10 +97,10 @@ namespace pProjetSynthèse
                     Nom = pNom,
                     Prenom = pPrenom,
                     Datecreation = DateTime.Now,
-                    NumGerant = "G-" + DateTime.Now
+                    NumGerant = StringId("E-")
                 });
                 lblErreurUsager.ForeColor = Color.Green;
-                lblErreurUsager.Text = "G-" + DateTime.Now;
+                lblErreurUsager.Text = StringId("G-");
             }
             else
             {
@@ -102,10 +109,10 @@ namespace pProjetSynthèse
                     Nom = pNom,
                     Prenom = pPrenom,
                     Datecreation = DateTime.Now,
-                    NumEmployer = "E-" + DateTime.Now
+                    NumEmployer = StringId("E-")
                 });
                 lblErreurUsager.ForeColor = Color.Green;
-                lblErreurUsager.Text = "E-" + DateTime.Now;
+                lblErreurUsager.Text = StringId("E-");
             }
 
             cmbAff();
@@ -136,6 +143,7 @@ namespace pProjetSynthèse
 
         private void btnAfficher_Click(object sender, EventArgs e)
         {
+            lblErreurUsager.Text = "";
             lblErreurUsager.ForeColor = Color.Blue;
             lblErreurUsager.Text = "Les gérants: ";
             foreach (cGerant objUsager in listecGerant)
@@ -149,6 +157,8 @@ namespace pProjetSynthèse
 
                 lblErreurUsager.Text += objUsager.ToString();
             }
+
+            lblErreurUsager.Text += "\nNombre d'usager créer: "+ cUsager.nb_usager;
 
         }
     }

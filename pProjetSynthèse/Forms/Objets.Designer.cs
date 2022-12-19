@@ -49,6 +49,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblErreurObj = new System.Windows.Forms.Label();
             this.btnRaffairchir = new System.Windows.Forms.Button();
+            this.btnCreation = new System.Windows.Forms.Button();
+            this.lbldatapassed = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagridObj)).BeginInit();
             this.SuspendLayout();
             // 
@@ -225,11 +227,32 @@
             this.btnRaffairchir.UseVisualStyleBackColor = true;
             this.btnRaffairchir.Click += new System.EventHandler(this.btnRaffairchir_Click);
             // 
+            // btnCreation
+            // 
+            this.btnCreation.Location = new System.Drawing.Point(369, 288);
+            this.btnCreation.Name = "btnCreation";
+            this.btnCreation.Size = new System.Drawing.Size(103, 23);
+            this.btnCreation.TabIndex = 20;
+            this.btnCreation.Text = "Passé Création";
+            this.btnCreation.UseVisualStyleBackColor = true;
+            this.btnCreation.Click += new System.EventHandler(this.btnCreation_Click);
+            // 
+            // lbldatapassed
+            // 
+            this.lbldatapassed.AutoSize = true;
+            this.lbldatapassed.Location = new System.Drawing.Point(541, 288);
+            this.lbldatapassed.Name = "lbldatapassed";
+            this.lbldatapassed.Size = new System.Drawing.Size(0, 13);
+            this.lbldatapassed.TabIndex = 21;
+            this.lbldatapassed.Visible = false;
+            // 
             // Objets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 345);
+            this.Controls.Add(this.lbldatapassed);
+            this.Controls.Add(this.btnCreation);
             this.Controls.Add(this.btnRaffairchir);
             this.Controls.Add(this.lblErreurObj);
             this.Controls.Add(this.txbPrix);
@@ -278,5 +301,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblErreurObj;
         private System.Windows.Forms.Button btnRaffairchir;
+        private System.Windows.Forms.Button btnCreation;
+        private System.Windows.Forms.Label lbldatapassed;
     }
 }

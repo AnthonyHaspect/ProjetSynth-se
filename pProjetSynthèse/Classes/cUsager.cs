@@ -8,10 +8,11 @@ namespace pProjetSynthèse.Classes
 {
     abstract class cUsager              //Va devenir soit un employer normal ou un Gérant
     {
+
         public string Nom;             //Nom de l'usager
         public string Prenom;          //Prenom de l'usager
-        public static int nb_usager = 0;// Tien Compte du nombre de Usager Créer   Référence mon Exercices d'Héritage avec les camion/véhicule/voiture
         public DateTime Datecreation;  //Date de la création de l'usager
+        public static int nb_usager = 0;// Tien Compte du nombre de Usager Créer   Référence mon Exercices d'Héritage avec les camion/véhicule/voiture
 
 
 

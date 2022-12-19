@@ -42,13 +42,16 @@
             this.btnModif = new System.Windows.Forms.Button();
             this.btnSupp = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnCommande = new System.Windows.Forms.Button();
             this.txbEmployer = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txbNbItem = new System.Windows.Forms.TextBox();
+            this.txbNbHeure = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnRaffairchirs = new System.Windows.Forms.Button();
+            this.txbCodeCmd = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgtCreations)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +70,7 @@
             this.dgtCreations.Name = "dgtCreations";
             this.dgtCreations.Size = new System.Drawing.Size(642, 212);
             this.dgtCreations.TabIndex = 0;
+            this.dgtCreations.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgtCreations_CellClick);
             // 
             // Item
             // 
@@ -144,29 +148,42 @@
             // 
             // btnSupp
             // 
-            this.btnSupp.Location = new System.Drawing.Point(521, 238);
+            this.btnSupp.Enabled = false;
+            this.btnSupp.Location = new System.Drawing.Point(411, 67);
             this.btnSupp.Name = "btnSupp";
             this.btnSupp.Size = new System.Drawing.Size(97, 23);
             this.btnSupp.TabIndex = 13;
             this.btnSupp.Text = "Supprimer";
             this.btnSupp.UseVisualStyleBackColor = true;
+            this.btnSupp.Click += new System.EventHandler(this.btnSupp_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txbCodeCmd);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.btnSupp);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.btnCommande);
             this.groupBox1.Controls.Add(this.btnModif);
             this.groupBox1.Controls.Add(this.txbEmployer);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txbNbItem);
+            this.groupBox1.Controls.Add(this.txbNbHeure);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(12, 321);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(393, 124);
+            this.groupBox1.Size = new System.Drawing.Size(682, 124);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nouveau";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(109, 19);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(153, 21);
+            this.comboBox1.TabIndex = 21;
             // 
             // btnCommande
             // 
@@ -176,6 +193,7 @@
             this.btnCommande.TabIndex = 20;
             this.btnCommande.Text = "Commander";
             this.btnCommande.UseVisualStyleBackColor = true;
+            this.btnCommande.Click += new System.EventHandler(this.btnCommande_Click);
             // 
             // txbEmployer
             // 
@@ -194,12 +212,12 @@
             this.label5.TabIndex = 16;
             this.label5.Text = "Employer";
             // 
-            // txbNbItem
+            // txbNbHeure
             // 
-            this.txbNbItem.Location = new System.Drawing.Point(109, 60);
-            this.txbNbItem.Name = "txbNbItem";
-            this.txbNbItem.Size = new System.Drawing.Size(155, 20);
-            this.txbNbItem.TabIndex = 19;
+            this.txbNbHeure.Location = new System.Drawing.Point(109, 60);
+            this.txbNbHeure.Name = "txbNbHeure";
+            this.txbNbHeure.Size = new System.Drawing.Size(155, 20);
+            this.txbNbHeure.TabIndex = 19;
             // 
             // label4
             // 
@@ -215,25 +233,44 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(20, 67);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Nombre d\'item";
+            this.label3.Text = "Nombre d\'heure";
             // 
-            // comboBox1
+            // btnRaffairchirs
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(109, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(153, 21);
-            this.comboBox1.TabIndex = 21;
+            this.btnRaffairchirs.Location = new System.Drawing.Point(370, 238);
+            this.btnRaffairchirs.Name = "btnRaffairchirs";
+            this.btnRaffairchirs.Size = new System.Drawing.Size(97, 23);
+            this.btnRaffairchirs.TabIndex = 20;
+            this.btnRaffairchirs.Text = "Raffairchir liste";
+            this.btnRaffairchirs.UseVisualStyleBackColor = true;
+            this.btnRaffairchirs.Click += new System.EventHandler(this.btnRaffairchirs_Click);
+            // 
+            // txbCodeCmd
+            // 
+            this.txbCodeCmd.Location = new System.Drawing.Point(497, 20);
+            this.txbCodeCmd.Name = "txbCodeCmd";
+            this.txbCodeCmd.ReadOnly = true;
+            this.txbCodeCmd.Size = new System.Drawing.Size(155, 20);
+            this.txbCodeCmd.TabIndex = 23;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(408, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "NumCommande";
             // 
             // Creations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRaffairchirs);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnSupp);
             this.Controls.Add(this.txbItemTotal);
             this.Controls.Add(this.txbArgentTot);
             this.Controls.Add(this.label2);
@@ -268,10 +305,13 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txbEmployer;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txbNbItem;
+        private System.Windows.Forms.TextBox txbNbHeure;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCommande;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnRaffairchirs;
+        private System.Windows.Forms.TextBox txbCodeCmd;
+        private System.Windows.Forms.Label label6;
     }
 }
