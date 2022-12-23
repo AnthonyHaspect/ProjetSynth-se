@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pProjetSynthèse.Classes
 {
-    internal class cObjet           //Classe qui possède les informations sur les objets    
+    public class cObjet           //Classe qui possède les informations sur les objets    
     {
         private int nbParHeure;   //Nombre d'objet crée par heure(ex: 100)
         private float prix;         //Le prix au quelle l'objet se vend(prix de vente)(ex: 

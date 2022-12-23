@@ -23,3 +23,6 @@ VALUES ('Cannette', 1000, 10.00, 20.00, 'I-235867');
 
 INSERT INTO Commande(Item, NbItem, Heures, Prix, Usager, NumeroCmd)
 VALUES ('Cannette', 2000, 2, 20.00, 'Anthony', 'C-564286');
+
+
+select * From objets

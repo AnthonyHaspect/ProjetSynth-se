@@ -24,6 +24,8 @@ namespace pProjetSynthèse
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Pour la maison
+            //"Data Source=localhost;Initial Catalog=AnthonyHaspect;Integrated Security=True"
             //Pour la connection a l'école
             //"Data Source=localhost;Initial Catalog=AnthonyHaspect;User ID=sa;Password=sql"
 

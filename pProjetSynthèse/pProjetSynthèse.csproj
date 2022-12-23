@@ -51,6 +51,7 @@
     <Compile Include="Classes\cCreation.cs" />
     <Compile Include="Classes\cEmployer.cs" />
     <Compile Include="Classes\cGerant.cs" />
+    <Compile Include="Classes\cMath.cs" />
     <Compile Include="Classes\cUsager.cs" />
     <Compile Include="Classes\cObjet.cs" />
     <Compile Include="Forms\Acceuil.cs">

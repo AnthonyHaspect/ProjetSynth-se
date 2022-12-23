@@ -17,7 +17,7 @@ namespace pProjetSynthèse.Forms
 {
     public partial class Objets : Form
     {
-        SqlConnection cnx;
+        SqlConnection cnx=new SqlConnection();
         SqlCommand command;
         string Query;
         SqlDataReader resultat;
@@ -36,7 +36,7 @@ namespace pProjetSynthèse.Forms
             //Configurer la connection avec la base de données
             String connectionString = ConfigurationManager.ConnectionStrings["cnxSqlServer"].ConnectionString;
 
-            cnx = new SqlConnection();
+            //cnx = new SqlConnection();
             cnx.ConnectionString = connectionString;
             //instancie un objet sqlcommande qui prend en parametre la requete et la connexion SQL
             Query = "SELECT * from objets";
@@ -269,7 +269,7 @@ namespace pProjetSynthèse.Forms
         private void btnCreation_Click(object sender, EventArgs e)
         {
             //Passe les valeur et liste nécessaire vers la page création
-            Creations formulaire2 = new Creations(lbldatapassed.Text);//, ListeObjets);
+            Creations formulaire2 = new Creations(lbldatapassed.Text, ListeObjets);
             formulaire2.Show();
         }
     }

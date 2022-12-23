@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
+using pProjetSynthèse.Classes;
 
 namespace pProjetSynthèse.Forms
 {
@@ -27,7 +28,7 @@ namespace pProjetSynthèse.Forms
         List<cObjet> listeObjet = new List<cObjet>();
         List<cGerant> listecGerant = new List<cGerant>();
         List<cCreation> listeCreation = new List<cCreation>();
-        public Creations(string datapass)//, List<cObjet> liste)
+        public Creations(string datapass, List<cObjet> liste)
         {
             InitializeComponent();
             //Prend l'usager qui est choisit et le met dans la classe
