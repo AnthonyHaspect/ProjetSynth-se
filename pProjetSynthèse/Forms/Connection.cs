@@ -62,21 +62,21 @@ namespace pProjetSynthèse
         {
             lblErreurUsager.Text = "Les erreurs: ";
             //si le text ne match pas une chaine de caractère il refuse
-            if (!Regex.Match(txbNom.Text.Trim(), "[a-zA-Z]{2,254}").Success)
+            if (!Regex.Match(txbNom.Text.Trim(), "^[a-zA-Z]{2,254}$").Success)
             {
                 lblErreurUsager.Text += "\nLe champ nom de l'usager n'est pas comforme";
                 lblErreurUsager.ForeColor = Color.Red;
                 return;
             }
             //si le text ne match pas une chaine de caractère il refuse
-            if (!Regex.Match(txbPrenom.Text.Trim(), "[a-zA-Z]{2,254}").Success)
+            if (!Regex.Match(txbPrenom.Text.Trim(), "^[a-zA-Z]{2,254}$").Success)
             {
                 lblErreurUsager.Text += "\nLe champ prenom de l'usager n'est pas comforme";
                 lblErreurUsager.ForeColor = Color.Red;
                 return;
             }
             //si le text ne match pas une chaine de caractère il refuse
-            if (!Regex.Match(txbDeptart.Text.Trim(), "[a-zA-Z]{2,254}").Success)
+            if (!Regex.Match(txbDeptart.Text.Trim(), "^[a-zA-Z]{2,254}$").Success)
             {
                 lblErreurUsager.Text += "\nLe champ departement de l'usager n'est pas comforme";
                 lblErreurUsager.ForeColor = Color.Red;

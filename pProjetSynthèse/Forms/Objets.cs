@@ -182,6 +182,8 @@ namespace pProjetSynthèse.Forms
         {
             //Récupérer la position dans le DataGrid
             position = datagridObj.CurrentRow.Index;
+            //Récup
+            string code = datagridObj.Rows[position].Cells[4].Value.ToString();
             //Récupérer les données dans les textBox à partir du clic sur le DataGridView 
             txbNomItem.Text = datagridObj.Rows[position].Cells[0].Value.ToString();
             txbNbParH.Text = datagridObj.Rows[position].Cells[1].Value.ToString();
@@ -195,22 +197,34 @@ namespace pProjetSynthèse.Forms
         //Référence Laboratoire_Mode_connecte.docx
         private void btnSupp_Click(object sender, EventArgs e)
         {
-            //command = new SqlCommand(Query, cnx);
-            Query = "Delete From objets where code='@Code'";
-            using (SqlCommand command = new SqlCommand(Query, cnx))
-            {
-                command.Parameters.AddWithValue("@Code", txbCode.Text);
-
-                //Rétablir la connexion avec le serveur si elle est fermée   
-                if (cnx.State == ConnectionState.Open) //ConnectionState dans System.Data
-                    cnx.Close();
-                cnx.Open();
-                command.ExecuteNonQuery();
-                datagridObj.Rows.RemoveAt(position);
+            SqlCommand commande = new SqlCommand();
+            commande.CommandText = "Delete From objets where code='@Code'";
+            commande.Parameters.AddWithValue("@Num", Code);
+            //Rétablir la connexion avec le serveur si elle est fermée   
+            if (cnx.State == ConnectionState.Open) //ConnectionState dans System.Data
                 cnx.Close();
-            }
+            cnx.Open();
+            command.ExecuteNonQuery();
+            datagridObj.Rows.RemoveAt(position);
+            cnx.Close();
 
-            command.CommandText = Query;
+            //command = new SqlCommand(Query, cnx);
+
+            //Query = "Delete From objets where code='@Code'";
+            //using (SqlCommand command = new SqlCommand(Query, cnx))
+            //{
+            //    command.Parameters.AddWithValue("@Code", txbCode.Text);
+
+            //    //Rétablir la connexion avec le serveur si elle est fermée   
+            //    if (cnx.State == ConnectionState.Open) //ConnectionState dans System.Data
+            //        cnx.Close();
+            //    cnx.Open();
+            //    command.ExecuteNonQuery();
+            //    datagridObj.Rows.RemoveAt(position);
+            //    cnx.Close();
+            //}
+
+            //command.CommandText = Query;
 
             btnModif.Enabled = false;
             btnSupp.Enabled = false;
@@ -220,7 +234,7 @@ namespace pProjetSynthèse.Forms
 
         private void btnModif_Click(object sender, EventArgs e)
         {
-            if (!Regex.Match(txbNomItem.Text, "[a-zA-Z]{2,254}").Success)
+            if (!Regex.Match(txbNomItem.Text, "^[a-zA-Z]{2,254}$").Success)
             {
                 lblErreurObj.Text += "\nLe champ Nom de l'item n'est pas comforme";
                 lblErreurObj.ForeColor = Color.Red;
